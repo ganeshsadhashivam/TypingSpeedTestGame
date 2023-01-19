@@ -40,7 +40,7 @@ const initTyping = () => {
       timer - setInterval(initTimer, 1000);
       isTyping = true;
     }
-    //timer = setInterval(initTimer, 1000);
+
     //if user hasn't entered any character or pressed backspace
     if (typedChar == null) {
       charIndex--;
@@ -53,16 +53,13 @@ const initTyping = () => {
         //if user typed character and shown character matched then add the
         //correct class else increment the mistakes add the incorrect class
         characters[charIndex].classList.add("correct");
-        console.log("correct");
       } else {
         mistakes++;
         characters[charIndex].classList.add("incorrect");
         //characters[charIndex].classList.add("active");
-        console.log("incorrect");
       }
-      //increment charIndex by 1
+
       charIndex++;
-      //console.log(characters[0]);
     }
     characters.forEach((span) => span.classList.remove("active"));
     characters[charIndex].classList.add("active");
@@ -70,7 +67,7 @@ const initTyping = () => {
     let wpm = Math.round(
       ((charIndex - mistakes) / 5 / (maxTime - timeLeft)) * 60
     );
-    console.log(wpm);
+
     //if wpm value is 0 , empty or ,infinity then setting its's calue to 0
     wpm = wpm < 0 || !wpm || wpm === Infinity ? 0 : wpm;
     mistakeTag.innerText = mistakes;
